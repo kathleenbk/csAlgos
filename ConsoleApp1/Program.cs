@@ -17,4 +17,29 @@ public class Solution
         }
         return Array.Empty<int>();
     }
+
+
+    public int MaxProfit(int[] prices)
+    {
+        int buyPrice = int.MaxValue;
+        int maxProfit = 0;
+        int arrayLength = prices.Length;
+
+        for (int i = 0; i < arrayLength; i++)
+        {
+            if (prices[i] < buyPrice)
+            {
+                buyPrice = prices[i];
+            }
+
+            int profit = prices[i] - buyPrice;
+
+            if (profit > maxProfit)
+            {
+                maxProfit = profit;
+            }
+        }
+        return maxProfit;
+    }
 }
+
